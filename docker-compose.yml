@@ -5,8 +5,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    image: peppiss/docker-repo:lmg-mcpserver-diagrams
     ports:
-      - "8000:8000"
+      - "7342:8000"
     volumes:
       - ./:/app
       - ./output:/app/output
@@ -23,7 +24,7 @@ services:
   kroki:
     image: yuzutech/kroki
     ports:
-      - "8001:8000"
+      - "9156:8000"
     environment:
       - KROKI_BLOCKDIAG_HOST=blockdiag
       - KROKI_MERMAID_HOST=mermaid

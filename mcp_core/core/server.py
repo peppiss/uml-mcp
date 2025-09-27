@@ -70,6 +70,6 @@ def start_server(transport='stdio', host=None, port=None):
     elif transport == 'http':
         if not host or not port:
             raise ValueError("Host and port must be specified for HTTP transport")
-        server.run_http(host=host, port=port)
+        server.run(transport='http', host=host, port=port)
     else:
         raise ValueError(f"Unsupported transport: {transport}")

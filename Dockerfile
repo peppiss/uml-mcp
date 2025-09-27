@@ -14,6 +14,9 @@ RUN apt-get update && apt-get install -y \
 # Copy requirements file first for better caching
 COPY requirements.txt ./
 
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
 # Copy source code
 COPY . .
 
@@ -23,5 +26,5 @@ RUN mkdir -p /app/output
 # Expose port for API
 EXPOSE 8000
 
-# Set entrypoint for stdio mode
-ENTRYPOINT ["python", "mcp_server.py", "--transport", "stdio"]
+# Set entrypoint for HTTP mode
+ENTRYPOINT ["python", "mcp_serve2r.py", "--transport", "http", "--host", "0.0.0.0", "--port", "8000"]
