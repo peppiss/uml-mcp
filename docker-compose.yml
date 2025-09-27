@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  uml-mcp:
+  lmg-mcpserver-diagrams:
     build:
       context: .
       dockerfile: Dockerfile
